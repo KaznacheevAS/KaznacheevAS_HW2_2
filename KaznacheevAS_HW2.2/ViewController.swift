@@ -11,30 +11,39 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var bagckgraundView: UIView!
     
-    @IBOutlet weak var textRed: UILabel!
+    @IBOutlet weak var labelRed: UILabel!
+    @IBOutlet weak var labelBlue: UILabel!
+    @IBOutlet weak var labelGren: UILabel!
+    
+    @IBOutlet weak var sliderRed: UISlider!
+    @IBOutlet weak var sliderBlue: UISlider!
+    @IBOutlet weak var sliderGren: UISlider!
     
     
-    @IBOutlet weak var slider: UISlider! {
-        didSet {
-            slider.tintColor = UIColor.red
-        }
-    }
     let brightRed = UIColor(displayP3Red: 1.0 / 255, green: 0.0 / 255, blue: 0.0 / 255, alpha: 1.0)
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bagckgraundView.layer.cornerRadius = 10
         
-        slider.minimumValue = 0
-        slider.maximumValue = 1
+        sliderRed.minimumValue = 0
+        sliderRed.maximumValue = 1
     }
 
+    
+    
     @IBAction func tugleSlider() {
-        textRed.text = "Red \(String(format: "%.1f", slider.value))"
+        textLabelValue()
     }
     
     
-    
+    func textLabelValue() {
+        labelRed.text = "Red \(String(format: "%.2f", sliderRed.value))"
+        labelBlue.text = "Blue \(String(format: "%.2f", sliderBlue.value))"
+        labelGren.text = "Gren \(String(format: "%.2f", sliderGren.value))"
+    }
     
 }
 
